@@ -13,14 +13,14 @@ clc;
 SAVE = 0;
 
 if exist('NUM_OF_GREAT_CIRCLES') == 0
-    NUM_OF_GREAT_CIRCLES = 3;   %% The number of great circles to generate
+    NUM_OF_GREAT_CIRCLES = 10;   %% The number of great circles to generate
 end;
 
 
 TRANSPARENCY = 0.5;
 ENABLE_AXIS = 0;
-ENABLE_SPHERE = 0;
-ENABLE_LINE_INTERSECTIONS = 1;
+ENABLE_SPHERE = 1;
+ENABLE_LINE_INTERSECTIONS = 0;
 ENABLE_PLANES = 0;
 ENABLE_SPECIAL_GRAPHS = 0;
 VERIFY_ADJACENCY_MATRIX = 0;
