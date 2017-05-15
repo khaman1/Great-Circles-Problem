@@ -1,0 +1,172 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7069,        163]
+NotebookOptionsPosition[      6494,        139]
+NotebookOutlinePosition[      6843,        154]
+CellTagsIndexPosition[      6800,        151]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"SystemOpen", "@", 
+  RowBox[{"FileNameJoin", "[", 
+   RowBox[{"{", 
+    RowBox[{"$UserBaseDirectory", ",", "\"\<Applications\>\""}], "}"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.641509933642152*^9, 3.641509933642152*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<MATLink`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.6415100313434763`*^9, 3.6415100313434763`*^9}, {
+  3.641510403190624*^9, 3.641510410641687*^9}, {3.641511152729086*^9, 
+  3.641511153826149*^9}}],
+
+Cell[BoxData[
+ RowBox[{"SetOptions", "[", 
+  RowBox[{"MATLink", ",", 
+   RowBox[{"\"\<Force32BitEngine\>\"", "\[Rule]", "False"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6415103792319074`*^9, 3.6415103839689407`*^9}, {
+  3.641510610098049*^9, 3.6415106106100783`*^9}, {3.641510643667969*^9, 
+  3.641510646339122*^9}, {3.641510871738014*^9, 3.64151087218604*^9}, {
+  3.641511164913783*^9, 3.641511165874838*^9}}],
+
+Cell[BoxData[
+ RowBox[{"OpenMATLAB", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.6415104736267614`*^9, 3.6415104736267614`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MATLink`Developer`GetInfo", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.6415109785861254`*^9, 3.641510978587126*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"MATLink 1.1 for Windows (Fri 15 Aug 2014)\"\>", 
+   "\[InvisibleSpace]", "\<\"\\n\\n\"\>", 
+   "\[InvisibleSpace]", "\<\"10.0 for Microsoft Windows (64-bit) (September \
+9, 2014)\"\>", "\[InvisibleSpace]", "\<\"\\n\\n\"\>", 
+   "\[InvisibleSpace]", "\<\"Force 32-bit engine: False\"\>", 
+   "\[InvisibleSpace]", "\<\"\\n\\n\"\>", 
+   "\[InvisibleSpace]", "\<\"System PATH:\\nC:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\10.0\\\\SystemFiles\\\\Libraries\\\\Windows-x86-64\
+\\nC:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\10.0\\\\SystemFiles\\\\Libraries\\\\Windows\\nC:\\\
+\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\10.0\\\\SystemFiles\\\\Kernel\\\\Binaries\\\\\
+Windows-x86-64\\nC:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\10.0\\nC:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\10.0\\\\SystemFiles\\\\FrontEnd\\\\Binaries\\\\\
+Windows-x86-64\\nC:\\\\Program Files\\\\Wolfram \
+Research\\\\Mathematica\\\\10.0\\\\SystemFiles\\\\Kernel\\\\Binaries\\\\\
+Windows-x86-64\\nC:\\\\Program Files (x86)\\\\NVIDIA \
+Corporation\\\\PhysX\\\\Common\\nC:\\\\Program Files (x86)\\\\Intel\\\\iCLS \
+Client\\\\\\nC:\\\\Program Files\\\\Intel\\\\iCLS \
+Client\\\\\\nC:\\\\Windows\\\\system32\\nC:\\\\Windows\\nC:\\\\Windows\\\\\
+System32\\\\Wbem\\nC:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\\
+\\nC:\\\\Program Files\\\\MATLAB\\\\MATLAB Production \
+Server\\\\R2015a\\\\runtime\\\\win64\\nC:\\\\Program \
+Files\\\\MATLAB\\\\MATLAB Production Server\\\\R2015a\\\\bin\\nC:\\\\Program \
+Files\\\\MATLAB\\\\MATLAB Production \
+Server\\\\R2015a\\\\polyspace\\\\bin\\nC:\\\\Program \
+Files\\\\Intel\\\\Intel(R) Management Engine \
+Components\\\\DAL\\nC:\\\\Program Files\\\\Intel\\\\Intel(R) Management \
+Engine Components\\\\IPT\\nC:\\\\Program Files (x86)\\\\Intel\\\\Intel(R) \
+Management Engine Components\\\\DAL\\nC:\\\\Program Files \
+(x86)\\\\Intel\\\\Intel(R) Management Engine Components\\\\IPT\\n.\\n\"\>", 
+   "\[InvisibleSpace]", "\<\"\\n\\n\"\>", 
+   "\[InvisibleSpace]", "\<\"COM server information:\\nCLSID: \
+{D90E7153-0111-49E5-ACDA-3DF104EAE1F8}\\nProgram ID: Matlab.Application \
+(Version 8.5)\\nCommand: C:\\\\Program Files\\\\MATLAB\\\\MATLAB Production \
+Server\\\\R2015a\\\\bin\\\\win64\\\\MATLAB.exe /MLAutomation\\n\"\>"}],
+  SequenceForm[
+  "MATLink 1.1 for Windows (Fri 15 Aug 2014)", "\n\n", 
+   "10.0 for Microsoft Windows (64-bit) (September 9, 2014)", "\n\n", 
+   "Force 32-bit engine: False", "\n\n", 
+   "System PATH:\nC:\\Program Files\\Wolfram \
+Research\\Mathematica\\10.0\\SystemFiles\\Libraries\\Windows-x86-64\n\
+C:\\Program Files\\Wolfram \
+Research\\Mathematica\\10.0\\SystemFiles\\Libraries\\Windows\nC:\\Program \
+Files\\Wolfram \
+Research\\Mathematica\\10.0\\SystemFiles\\Kernel\\Binaries\\Windows-x86-64\n\
+C:\\Program Files\\Wolfram Research\\Mathematica\\10.0\nC:\\Program \
+Files\\Wolfram \
+Research\\Mathematica\\10.0\\SystemFiles\\FrontEnd\\Binaries\\Windows-x86-64\n\
+C:\\Program Files\\Wolfram \
+Research\\Mathematica\\10.0\\SystemFiles\\Kernel\\Binaries\\Windows-x86-64\n\
+C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common\nC:\\Program Files \
+(x86)\\Intel\\iCLS Client\\\nC:\\Program Files\\Intel\\iCLS Client\\\n\
+C:\\Windows\\system32\nC:\\Windows\nC:\\Windows\\System32\\Wbem\n\
+C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\\nC:\\Program \
+Files\\MATLAB\\MATLAB Production Server\\R2015a\\runtime\\win64\nC:\\Program \
+Files\\MATLAB\\MATLAB Production Server\\R2015a\\bin\nC:\\Program \
+Files\\MATLAB\\MATLAB Production Server\\R2015a\\polyspace\\bin\nC:\\Program \
+Files\\Intel\\Intel(R) Management Engine Components\\DAL\nC:\\Program \
+Files\\Intel\\Intel(R) Management Engine Components\\IPT\nC:\\Program Files \
+(x86)\\Intel\\Intel(R) Management Engine Components\\DAL\nC:\\Program Files \
+(x86)\\Intel\\Intel(R) Management Engine Components\\IPT\n.\n", "\n\n", 
+   "COM server information:\nCLSID: {D90E7153-0111-49E5-ACDA-3DF104EAE1F8}\n\
+Program ID: Matlab.Application (Version 8.5)\nCommand: C:\\Program \
+Files\\MATLAB\\MATLAB Production Server\\R2015a\\bin\\win64\\MATLAB.exe \
+/MLAutomation\n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.6415124665162306`*^9, {3.6416429931599674`*^9, 3.641642995773117*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MEvaluate", "[", "\"\<mat = magic(4)\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.641511466995061*^9, 3.6415114669960613`*^9}}],
+
+Cell[BoxData["\<\"\\nmat =\\n\\n    16     2     3    13\\n     5    11    10 \
+    8\\n     9     7     6    12\\n     4    14    15     1\\n\\n\"\>"], \
+"Output",
+ CellChangeTimes->{3.641511467815108*^9}]
+}, Open  ]]
+},
+WindowSize->{1436, 639},
+WindowMargins->{{165, Automatic}, {135, Automatic}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (September 9, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 252, 6, 31, "Input"],
+Cell[813, 28, 241, 4, 31, "Input"],
+Cell[1057, 34, 413, 7, 31, "Input"],
+Cell[1473, 43, 128, 2, 31, "Input"],
+Cell[CellGroupData[{
+Cell[1626, 49, 141, 2, 31, "Input"],
+Cell[1770, 53, 4311, 71, 670, "Print"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6118, 129, 151, 2, 31, "Input"],
+Cell[6272, 133, 206, 3, 192, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

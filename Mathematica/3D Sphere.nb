@@ -1,0 +1,287 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11542,        278]
+NotebookOptionsPosition[     11120,        259]
+NotebookOutlinePosition[     11491,        275]
+CellTagsIndexPosition[     11448,        272]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"greatCircle", "[", 
+     RowBox[{"\[CurlyPhi]_", ",", "\[Theta]_", ",", 
+      RowBox[{"r_:", " ", "1"}]}], "]"}], ":=", 
+    RowBox[{"BSplineCurve", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Composition", "[", 
+        RowBox[{
+         RowBox[{"RotationTransform", "[", 
+          RowBox[{"\[Theta]", ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "]"}], ",", 
+         RowBox[{"RotationTransform", "[", 
+          RowBox[{"\[CurlyPhi]", ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "1", ",", "0"}], "}"}]}], "]"}]}], "]"}], "/@", 
+       RowBox[{"(", 
+        RowBox[{"r", " ", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", "1", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "1"}], ",", "1", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "1"}], ",", "0", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "1"}], ",", 
+             RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", 
+             RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "}"}]}], ")"}]}], ",", 
+      RowBox[{"SplineDegree", "\[Rule]", "2"}], ",", 
+      RowBox[{"SplineKnots", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "0", ",", 
+         RowBox[{"1", "/", "4"}], ",", 
+         RowBox[{"1", "/", "2"}], ",", 
+         RowBox[{"1", "/", "2"}], ",", 
+         RowBox[{"3", "/", "4"}], ",", "1", ",", "1", ",", "1"}], "}"}]}], 
+      ",", 
+      RowBox[{"SplineWeights", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", 
+         RowBox[{"1", "/", "2"}], ",", 
+         RowBox[{"1", "/", "2"}], ",", "1", ",", 
+         RowBox[{"1", "/", "2"}], ",", 
+         RowBox[{"1", "/", "2"}], ",", "1"}], "}"}]}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"greatCircle0", "=", 
+   RowBox[{"greatCircle", "[", 
+    RowBox[{
+     RowBox[{"13", "\[Degree]"}], ",", 
+     RowBox[{"118", "\[Degree]"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"greatCircle1", "=", 
+    RowBox[{"greatCircle", "[", 
+     RowBox[{
+      RowBox[{"336", "\[Degree]"}], ",", 
+      RowBox[{"153", "\[Degree]"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Sphere1", "=", 
+  RowBox[{"With", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\[CurlyEpsilon]", "=", "1*^-3"}], " ", 
+      RowBox[{"(*", 
+       RowBox[{"shrinks", " ", "sphere", " ", "slightly"}], "*)"}], ",", 
+      RowBox[{"\[CurlyPhi]", "=", 
+       RowBox[{"45", " ", "\[Degree]"}]}]}], " ", 
+     RowBox[{"(*", "inclination", "*)"}], "}"}], ",", 
+    RowBox[{"Graphics3D", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Opacity", "[", 
+           RowBox[{
+            RowBox[{"2", "/", "5"}], ",", "White"}], "]"}], ",", 
+          RowBox[{"Sphere", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+            RowBox[{"1", "-", "\[CurlyEpsilon]"}]}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Directive", "[", 
+           RowBox[{
+            RowBox[{"AbsoluteThickness", "[", "3", "]"}], ",", "Blue"}], 
+           "]"}], ",", "greatCircle0", ",", "greatCircle1", ",", 
+          RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+          RowBox[{"Point", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "0.102621409293032"}], ",", 
+             RowBox[{"-", "0.834631354128948"}], ",", 
+             RowBox[{"-", "0.541164807669152"}]}], "}"}], "]"}]}], "}"}]}], 
+       "}"}], ",", 
+      RowBox[{"Lighting", "\[Rule]", "\"\<Neutral\>\""}], ",", 
+      RowBox[{"Boxed", "\[Rule]", "False"}]}], "]"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.6277476618905454`*^9, 3.6277476618915453`*^9}, {
+   3.6277476921022735`*^9, 3.627747771779831*^9}, 3.630894162587663*^9, {
+   3.6308999275332184`*^9, 3.630899941868038*^9}, {3.630899996654996*^9, 
+   3.630900014826303*^9}, {3.6309000509118853`*^9, 3.630900132328224*^9}, {
+   3.6309001753911924`*^9, 3.6309002619821877`*^9}, 3.630900328945691*^9, {
+   3.630900436313825*^9, 3.630900498033162*^9}, 3.630900564364586*^9, {
+   3.630900598671442*^9, 3.630900604906234*^9}, {3.6309006383169765`*^9, 
+   3.6309006411533365`*^9}, {3.6309010628353834`*^9, 3.630901063350949*^9}, {
+   3.630901103869594*^9, 3.63090119085314*^9}, {3.6309522913198633`*^9, 
+   3.630952307129592*^9}, {3.630952341050352*^9, 3.6309523702911034`*^9}, {
+   3.6309806020700035`*^9, 3.6309806358942986`*^9}, {3.630980780354143*^9, 
+   3.630980781094237*^9}, {3.6312146547865*^9, 3.6312146563076935`*^9}, 
+   3.631214729794525*^9, {3.631215815395879*^9, 3.6312159220714245`*^9}, {
+   3.6312160071167245`*^9, 3.631216020384909*^9}, {3.6312160598989267`*^9, 
+   3.6312160886420765`*^9}, {3.63121611961701*^9, 3.631216181838911*^9}, {
+   3.631216360600111*^9, 3.631216416041151*^9}}],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {GrayLevel[1], Opacity[
+     NCache[
+      Rational[2, 5], 0.4]], 
+    SphereBox[{0, 0, 0}, NCache[Rational[999, 1000], 0.999]]}, 
+   {RGBColor[0, 0, 1], AbsoluteThickness[3], 
+    BSplineCurve3DBox[
+     NCache[{{-Cos[13 Degree] Sin[28 Degree], Cos[13 Degree] Cos[28 Degree], 
+        Sin[13 Degree]}, {-Cos[28 Degree] - Cos[13 Degree] Sin[28 Degree], 
+        Cos[13 Degree] Cos[28 Degree] - Sin[28 Degree], Sin[
+        13 Degree]}, {-Cos[28 Degree] + 
+        Cos[13 Degree] Sin[28 Degree], -Cos[13 Degree] Cos[28 Degree] - Sin[
+        28 Degree], -Sin[13 Degree]}, {
+       Cos[13 Degree] Sin[28 Degree], -Cos[13 Degree] Cos[28 Degree], -
+        Sin[13 Degree]}, {
+       Cos[28 Degree] + 
+        Cos[13 Degree] Sin[28 Degree], -Cos[13 Degree] Cos[28 Degree] + 
+        Sin[28 Degree], -Sin[13 Degree]}, {
+       Cos[28 Degree] - Cos[13 Degree] Sin[28 Degree], 
+        Cos[13 Degree] Cos[28 Degree] + Sin[28 Degree], Sin[13 Degree]}, {-
+        Cos[13 Degree] Sin[28 Degree], Cos[13 Degree] Cos[28 Degree], Sin[
+        13 Degree]}}, {{-0.45743903704651406`, 0.8603177032559202, 
+      0.224951054343865}, {-1.340386629905441, 0.39084614047002936`, 
+      0.224951054343865}, {-0.4255085558124129, -1.329789266041811, \
+-0.224951054343865}, {
+      0.45743903704651406`, -0.8603177032559202, -0.224951054343865}, {
+      1.340386629905441, -0.39084614047002936`, -0.224951054343865}, {
+      0.4255085558124129, 1.329789266041811, 
+      0.224951054343865}, {-0.45743903704651406`, 0.8603177032559202, 
+      0.224951054343865}}],
+     SplineDegree->2,
+     SplineKnots->NCache[{0, 0, 0, 
+        Rational[1, 4], 
+        Rational[1, 2], 
+        Rational[1, 2], 
+        Rational[3, 4], 1, 1, 1}, {0, 0, 0, 0.25, 0.5, 0.5, 0.75, 1, 1, 1}],
+     SplineWeights->NCache[{1, 
+        Rational[1, 2], 
+        Rational[1, 2], 1, 
+        Rational[1, 2], 
+        Rational[1, 2], 1}, {1, 0.5, 0.5, 1, 0.5, 0.5, 1}]], 
+    BSplineCurve3DBox[
+     NCache[{{-Cos[24 Degree] Cos[27 Degree], Cos[24 Degree] Sin[27 Degree], -
+        Sin[24 Degree]}, {-Cos[24 Degree] Cos[27 Degree] - Sin[
+        27 Degree], -Cos[27 Degree] + Cos[24 Degree] Sin[27 Degree], -
+        Sin[24 Degree]}, {
+       Cos[24 Degree] Cos[27 Degree] - Sin[27 Degree], -Cos[27 Degree] - 
+        Cos[24 Degree] Sin[27 Degree], Sin[24 Degree]}, {
+       Cos[24 Degree] Cos[27 Degree], -Cos[24 Degree] Sin[27 Degree], Sin[
+        24 Degree]}, {
+       Cos[24 Degree] Cos[27 Degree] + Sin[27 Degree], Cos[27 Degree] - 
+        Cos[24 Degree] Sin[27 Degree], Sin[
+        24 Degree]}, {-Cos[24 Degree] Cos[27 Degree] + Sin[27 Degree], 
+        Cos[27 Degree] + Cos[24 Degree] Sin[27 Degree], -Sin[24 Degree]}, {-
+        Cos[24 Degree] Cos[27 Degree], Cos[24 Degree] Sin[27 Degree], -
+        Sin[24 Degree]}}, {{-0.8139749629022057, 
+      0.4147409588499573, -0.4067366430758002}, {-1.2679654626417525`, \
+-0.4762655653384106, -0.4067366430758002}, {
+      0.359984463162659, -1.305747483038325, 0.4067366430758002}, {
+      0.8139749629022057, -0.4147409588499573, 0.4067366430758002}, {
+      1.2679654626417525`, 0.4762655653384106, 
+      0.4067366430758002}, {-0.359984463162659, 
+      1.305747483038325, -0.4067366430758002}, {-0.8139749629022057, 
+      0.4147409588499573, -0.4067366430758002}}],
+     SplineDegree->2,
+     SplineKnots->NCache[{0, 0, 0, 
+        Rational[1, 4], 
+        Rational[1, 2], 
+        Rational[1, 2], 
+        Rational[3, 4], 1, 1, 1}, {0, 0, 0, 0.25, 0.5, 0.5, 0.75, 1, 1, 1}],
+     SplineWeights->NCache[{1, 
+        Rational[1, 2], 
+        Rational[1, 2], 1, 
+        Rational[1, 2], 
+        Rational[1, 2], 1}, {1, 0.5, 0.5, 1, 0.5, 0.5, 1}]], 
+    {PointSize[Large], 
+     Point3DBox[{-0.102621409293032, -0.834631354128948, \
+-0.541164807669152}]}}},
+  AutomaticImageSize->True,
+  Boxed->False,
+  ImageSize->{423.61980447181367`, 376.64617845189196`},
+  Lighting->"Neutral",
+  ViewPoint->{-2.0344721034141355`, -2.68100534136146, 0.35090400399680766`},
+  ViewVertical->{0.10464701528717486`, -0.6410881599376841, 
+   0.9032507204821147}]], "Output",
+ CellChangeTimes->{
+  3.630900134690024*^9, {3.6309001931404457`*^9, 3.630900229543069*^9}, 
+   3.630900266607275*^9, 3.630900330345869*^9, 3.6309004532079706`*^9, {
+   3.6309004843984313`*^9, 3.6309004997008743`*^9}, 3.6309005662413235`*^9, 
+   3.6309006750306387`*^9, {3.630901119738109*^9, 3.630901182840122*^9}, {
+   3.6309523015528817`*^9, 3.6309523076911926`*^9}, 3.6309523457771597`*^9, 
+   3.6309523775888166`*^9, 3.630980607497693*^9, 3.630980637657523*^9, 
+   3.6309807851122475`*^9, {3.631214642877988*^9, 3.63121465690827*^9}, {
+   3.6312159029559975`*^9, 3.631215923298581*^9}, {3.631216133744804*^9, 
+   3.6312161824944944`*^9}, {3.6312163636860027`*^9, 3.6312163920030985`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.630901199669259*^9, 3.6309012012544603`*^9}, {
+   3.630901774696278*^9, 3.630901804471059*^9}, 3.6312146486337185`*^9}],
+
+Cell[BoxData["\n"], "Input",
+ CellChangeTimes->{{3.630901822208311*^9, 3.6309018487386804`*^9}}]
+},
+WindowSize->{1348, 804},
+WindowMargins->{{4, Automatic}, {42, Automatic}},
+Magnification:>1.2 Inherited,
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (July 1, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 5458, 130, 336, "Input"],
+Cell[6041, 154, 4793, 95, 470, "Output"]
+}, Open  ]],
+Cell[10849, 252, 168, 2, 36, "Input"],
+Cell[11020, 256, 96, 1, 60, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

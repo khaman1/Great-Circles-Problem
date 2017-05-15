@@ -1,0 +1,260 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11244,        251]
+NotebookOptionsPosition[     10668,        227]
+NotebookOutlinePosition[     11040,        243]
+CellTagsIndexPosition[     10997,        240]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"<<", "Combinatorica`"}], "\n", 
+ RowBox[{"<<", "GraphUtilities`"}], "\[IndentingNewLine]", 
+ RowBox[{"Needs", "[", "\"\<MATLink`\>\"", "]"}], "\n", 
+ RowBox[{"OpenMATLAB", "[", "]"}]}], "Input",
+ CellChangeTimes->{{3.6325201131717014`*^9, 3.6325201307937093`*^9}, {
+  3.632886479062269*^9, 3.632886479574296*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "compat"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Combinatorica Graph and Permutations functionality has \
+been superseded by preloaded functionality. The package now being loaded may \
+conflict with this. Please see the Compatibility Guide for details.\"\>"}]], \
+"Message", "MSG",
+ CellChangeTimes->{3.6328942887240667`*^9, 3.6329201015392632`*^9, 
+  3.6329203159252353`*^9, 3.632932984101976*^9, 3.63293388982718*^9, 
+  3.6332261984901786`*^9, 3.63322632867358*^9, 3.633226599387064*^9, 
+  3.633226641031446*^9, 3.6332267031599994`*^9, 3.6332268528905635`*^9, 
+  3.6332278628776894`*^9, 3.633227910626368*^9, 3.63323305382049*^9, 
+  3.633234656080129*^9, 3.633234852618112*^9, 3.6332659369160414`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"MGet", "::", "shdw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Symbol \[NoBreak]\\!\\(\\\"MGet\\\"\\)\[NoBreak] appears \
+in multiple contexts \[NoBreak]\\!\\({\\\"MATLink`\\\", \\\"Global`\\\"}\\)\
+\[NoBreak]; definitions in context \[NoBreak]\\!\\(\\\"MATLink`\\\"\\)\
+\[NoBreak] may shadow or be shadowed by other definitions. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/shdw\\\", \
+ButtonNote -> \\\"MATLink`MGet::shdw\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6328942887240667`*^9, 3.6329201015392632`*^9, 
+  3.6329203159252353`*^9, 3.632932984101976*^9, 3.63293388982718*^9, 
+  3.6332261984901786`*^9, 3.63322632867358*^9, 3.633226599387064*^9, 
+  3.633226641031446*^9, 3.6332267031599994`*^9, 3.6332268528905635`*^9, 
+  3.6332278628776894`*^9, 3.633227910626368*^9, 3.63323305382049*^9, 
+  3.633234656080129*^9, 3.633234852618112*^9, 3.6332659377240877`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"MEvaluate", "::", "shdw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Symbol \[NoBreak]\\!\\(\\\"MEvaluate\\\"\\)\[NoBreak] \
+appears in multiple contexts \[NoBreak]\\!\\({\\\"MATLink`\\\", \\\"Global`\\\
+\"}\\)\[NoBreak]; definitions in context \[NoBreak]\\!\\(\\\"MATLink`\\\"\\)\
+\[NoBreak] may shadow or be shadowed by other definitions. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/shdw\\\", \
+ButtonNote -> \\\"MATLink`MEvaluate::shdw\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6328942887240667`*^9, 3.6329201015392632`*^9, 
+  3.6329203159252353`*^9, 3.632932984101976*^9, 3.63293388982718*^9, 
+  3.6332261984901786`*^9, 3.63322632867358*^9, 3.633226599387064*^9, 
+  3.633226641031446*^9, 3.6332267031599994`*^9, 3.6332268528905635`*^9, 
+  3.6332278628776894`*^9, 3.633227910626368*^9, 3.63323305382049*^9, 
+  3.633234656080129*^9, 3.633234852618112*^9, 3.633265937813093*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", 
+   RowBox[{"g", ",", "AdjacencyMat", ",", "Matrix"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"START", " ", "=", " ", "1"}], ";", " ", 
+  RowBox[{"END", " ", "=", " ", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+     "MEvaluate", "[", "\"\<mat = Great_Circles_Problem_3D; close all;\>\"", 
+      "]"}], ";", " ", 
+     RowBox[{"AdjacencyMat", " ", "=", " ", 
+      RowBox[{"IntegerPart", "[", 
+       RowBox[{"MGet", "[", "\"\<mat\>\"", "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"g", "[", "i", "]"}], "=", 
+      RowBox[{"AdjacencyGraph", "[", 
+       RowBox[{"AdjacencyMat", ",", 
+        RowBox[{"GraphLayout", "\[Rule]", "\"\<PlanarEmbedding\>\""}], ",", 
+        RowBox[{"VertexLabels", "\[Rule]", 
+         RowBox[{"Array", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"#", "\[Rule]", "#"}], "&"}], ",", 
+           RowBox[{"Length", "@", "AdjacencyMat"}]}], "]"}]}], ",", " ", 
+        RowBox[{"VertexSize", "\[Rule]", "0.8"}]}], "]"}]}], ";"}], " ", ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "START", ",", "END"}], "}"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Matrix", "=", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"IsomorphicGraphQ", "[", 
+      RowBox[{
+       RowBox[{"g", "[", "i", "]"}], ",", 
+       RowBox[{"g", "[", "j", "]"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "START", ",", "END"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", "START", ",", "END"}], "}"}]}], "]"}], "//", " ", 
+   "PaddedForm"}]}]}], "Input",
+ CellChangeTimes->{{3.6325201474306607`*^9, 3.63252019934263*^9}, {
+   3.6325204836958942`*^9, 3.6325204860640297`*^9}, {3.632520543825333*^9, 
+   3.632520561842364*^9}, {3.6325206029857173`*^9, 3.632520610569151*^9}, {
+   3.6325209173306966`*^9, 3.632520971784811*^9}, 3.6325212708849187`*^9, 
+   3.6325217561716757`*^9, {3.6325218172361684`*^9, 3.6325218238025436`*^9}, {
+   3.6325219786203985`*^9, 3.632522082594346*^9}, {3.6325221430038013`*^9, 
+   3.6325221887644186`*^9}, 3.632522260370514*^9, {3.6325223062511387`*^9, 
+   3.6325223063711452`*^9}, {3.6325225638988748`*^9, 3.632522625251384*^9}, {
+   3.632522777447089*^9, 3.6325228013884583`*^9}, {3.6328501800679274`*^9, 
+   3.632850207981524*^9}, 3.632850289319176*^9, {3.632851159124571*^9, 
+   3.632851168470085*^9}, {3.63285130619071*^9, 3.6328513094548903`*^9}, {
+   3.632851388325261*^9, 3.632851397612775*^9}, {3.632851762407786*^9, 
+   3.632851763021821*^9}, 3.632854813840685*^9, 3.6328549113120947`*^9, {
+   3.632855137359832*^9, 3.6328551379898663`*^9}, 3.6328552160161676`*^9, {
+   3.63285556117083*^9, 3.632855574272579*^9}, {3.632879917041112*^9, 
+   3.6328799206743126`*^9}, {3.632879961691573*^9, 3.6328799617475758`*^9}, {
+   3.632880238635871*^9, 3.632880246557308*^9}, {3.632881421853586*^9, 
+   3.6328814268398714`*^9}, {3.6328821120390625`*^9, 
+   3.6328821423237944`*^9}, {3.632883143854079*^9, 3.6328831540776634`*^9}, {
+   3.632885121990222*^9, 3.632885130942734*^9}, 3.6328857306906414`*^9, {
+   3.632885996295396*^9, 3.632886014768416*^9}, {3.63288629309687*^9, 
+   3.632886293739907*^9}, {3.632886437169959*^9, 3.6328865149832506`*^9}, {
+   3.632886549601158*^9, 3.63288654998518*^9}, {3.632886631688743*^9, 
+   3.6328866317927465`*^9}, {3.6328941619852467`*^9, 3.6328941721740646`*^9}, 
+   3.632894262420618*^9, {3.6329199742490444`*^9, 3.6329199742850466`*^9}, {
+   3.632920332062133*^9, 3.6329203321251364`*^9}, {3.6329211685605383`*^9, 
+   3.632921168802552*^9}, {3.6329234581402617`*^9, 3.6329234582068644`*^9}, 
+   3.63292359464034*^9, {3.6329329724043074`*^9, 3.63293297665555*^9}, {
+   3.6329330139056807`*^9, 3.632933013959684*^9}, {3.6329355162004004`*^9, 
+   3.6329355168734016`*^9}, {3.6332261710446606`*^9, 3.6332261710736623`*^9}, 
+   3.633226859262928*^9, {3.633227034260937*^9, 3.633227042053383*^9}, {
+   3.6332276638045883`*^9, 3.6332276678928137`*^9}, {3.6332278237965345`*^9, 
+   3.6332278600775356`*^9}, 3.633231449200801*^9, 3.633233039040644*^9, {
+   3.6332333272221203`*^9, 3.6332333282321787`*^9}, {3.633234652551927*^9, 
+   3.633234652612931*^9}, {3.6332357904221773`*^9, 3.633235791623379*^9}, 
+   3.6333938040773487`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \[NoBreak]\\!\\(\\*StyleBox[\\(MATLink \
+:: errx\\), \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during this \
+calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
+\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6332658098237724`*^9, 3.6332679319266553`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"mvc", "=", 
+     RowBox[{"MinimumVertexColoring", "@", 
+      RowBox[{"ToCombinatoricaGraph", "[", 
+       RowBox[{"g", "[", "i", "]"}], "]"}]}]}], ";", " ", 
+    RowBox[{
+     RowBox[{"GColored", "[", "i", "]"}], "=", 
+     RowBox[{"SetProperty", "[", 
+      RowBox[{
+       RowBox[{"g", "[", "i", "]"}], ",", 
+       RowBox[{"System`VertexStyle", "\[Rule]", 
+        RowBox[{"Thread", "[", 
+         RowBox[{
+          RowBox[{"System`VertexList", "[", 
+           RowBox[{"g", "[", "i", "]"}], "]"}], "\[Rule]", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"ColorData", "[", "97", "]"}], "/@", "mvc"}], ")"}]}], 
+         "]"}]}]}], "]"}]}]}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "1", ",", "2", ",", "3", ",", "6", ",", "9", ",", "10", ",", "12", ",", 
+       "15", ",", "25", ",", "26", ",", "41", ",", "47", ",", "57", ",", "78",
+        ",", "98", ",", "99", ",", "163", ",", "173", ",", "181", ",", "227", 
+       ",", "283", ",", "284", ",", "296", ",", "307", ",", "311", ",", "331",
+        ",", "503", ",", "519", ",", "576", ",", "655", ",", "683", ",", 
+       "839", ",", "938", ",", "951"}], "}"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.632886643671404*^9, 3.6328867195335903`*^9}, {
+   3.632886950839345*^9, 3.632886973950618*^9}, 3.632887013393793*^9, 
+   3.6328870516409025`*^9, {3.632918409024744*^9, 3.632918414096034*^9}, 
+   3.6329206104090347`*^9, 3.6329211176056237`*^9, 3.6329231710737495`*^9, 
+   3.632924350300659*^9, 3.632935390483838*^9, 3.632957469120497*^9, 
+   3.632959297607605*^9, 3.633227012955719*^9, 3.633229434577841*^9, 
+   3.633229863935994*^9, 3.6332313990669336`*^9, {3.6332332378480086`*^9, 
+   3.6332332384490433`*^9}, 3.6332357440128946`*^9, {3.6332647307659645`*^9, 
+   3.6332647409459853`*^9}, {3.633299480213873*^9, 3.6332994828730183`*^9}}]
+},
+WindowSize->{1920, 980},
+WindowMargins->{{-4, Automatic}, {Automatic, -4}},
+Magnification:>1.4 Inherited,
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (July 1, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 338, 6, 124, "Input"],
+Cell[921, 30, 777, 14, 31, "Message"],
+Cell[1701, 46, 1028, 17, 31, "Message"],
+Cell[2732, 65, 1041, 17, 31, "Message"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3810, 87, 4333, 82, 151, "Input"],
+Cell[8146, 171, 556, 11, 31, "Message"]
+}, Open  ]],
+Cell[8717, 185, 1947, 40, 97, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
